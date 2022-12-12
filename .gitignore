@@ -1,0 +1,8 @@
+*.pyc
+/venv/
+*.json
+*.sqlite3
+*.png
+*.ipg
+*.webp
+*.JPG

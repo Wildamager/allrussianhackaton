@@ -1,0 +1,56 @@
+{% extends "index/index.html" %}
+ 
+ 
+{% block content %}
+    <div class="col-md-12">          
+   <form style="margin-top: 20px; " method="POST" class="post-form"  action="/dashboard/camers/add_camers">  
+     {% csrf_token %}  
+    <div class="container">  
+   <br>  
+    <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div style="text-align: center;" class="col-sm-4">  
+    <h3>Enter Details</h3>  
+    </div>  
+     </div>  
+     
+     <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Location:</label>  
+    <div class="col-sm-4">  
+      {{ form.location }}  
+    </div>  
+     </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">IP-Address:</label>  
+    <div class="col-sm-4">  
+      {{ form.ip }}  
+    </div>  
+     </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Port:</label>  
+    <div class="col-sm-4">  
+      {{ form.port }}  
+    </div>  
+     </div>  
+    <div class="form-group row">  
+      <label class="col-sm-2 col-form-label">Login:</label>  
+    <div class="col-sm-4">  
+      {{ form.login }}  
+    </div>  
+     </div>  
+     <div class="form-group row">  
+      <label class="col-sm-2 col-form-label">Password:</label>  
+      <div class="col-sm-4">  
+      {{ form.password }}  
+      </div>  
+     </div>
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <button type="submit" class="btn btn-primary">Submit</button>  
+    </div>  
+     </div>  
+    </div>  
+   </form>  
+  </div>
+{% endblock content %}

@@ -1,0 +1,55 @@
+{% extends "index/index.html" %}
+ 
+ 
+{% block content %}
+<div class="col-md-12">
+    <h4>CRUD (Create Read Update Delete)</h4>  
+ <form method="POST" enctype ="multipart/form-data" class="post-form" action="#">  
+   {% csrf_token %}  
+  <div class="container">  
+ <br>  
+  <div class="form-group row">  
+  <label class="col-sm-1 col-form-label"></label>  
+  <div class="col-sm-4">  
+  <h3>Update Details</h3>  
+  </div>  
+   </div>  
+  <div class="form-group row">  
+  <label class="col-sm-2 col-form-label">Person Id:</label>  
+  <div class="col-sm-4">  
+   <input type="text" class="form-control" name="id" id="id_id" required maxlength="20" value="{{ persones.id }}"/>  
+  </div>  
+   </div>  
+   <div class="form-group row">  
+  <label class="col-sm-2 col-form-label">Person Name:</label>  
+  <div class="col-sm-4">  
+   <input type="text" class="form-control" name="name" id="id_name" required maxlength="100" value="{{ persones.name }}" />  
+  </div>  
+   </div>  
+  <div class="form-group row">  
+  <label class="col-sm-2 col-form-label">Person Email:</label>  
+  <div class="col-sm-4">  
+   <input type="email" class="form-control" name="email" id="id_email" required maxlength="254" value="{{ persones.email }}" />  
+  </div>  
+   </div>  
+  <div class="form-group row">  
+  <label class="col-sm-2 col-form-label">Person Contact:</label>  
+  <div class="col-sm-4">  
+   <input type="text" class="form-control" name="contact" id="id_contact" required maxlength="15" value="{{ persones.contact }}" />  
+  </div>  
+   </div>  
+   <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Person Image:</label>  
+    <div class="col-sm-4">  
+     <input type="file" class="form-control" name="image" id="id_image" required maxlength="254" value="{{ persones.image.url }}" />  
+    </div>  
+     </div>  
+  <div class="form-group row">  
+  <label class="col-sm-1 col-form-label"></label>  
+  <div class="col-sm-4">  
+  <button type="submit" class="btn btn-success btn-lg">Update</button>  
+  </div>  
+   </div>  
+  </div>  
+ </form>  
+{% endblock content %}

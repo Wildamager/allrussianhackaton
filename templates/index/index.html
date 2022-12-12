@@ -1,0 +1,107 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <title>SERVICE</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/8063/8063807.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'index/css/index.css' %}" >
+    <style>
+        .select,
+        #locale {
+          width: 100%;
+        }
+        .like {
+          margin-right: 10px;
+        }
+      </style>  
+</head>
+<body id="root" class="homepage">
+    <div class='navbar'>
+        <div class='icon'>
+            <img src="{% static 'index/css/icons/icon1.png' %}" alt="">
+        </div>
+        <div class='service-name'>Video Control</div>
+        <div class='profile'>
+            <img src="{% static 'index/css/icons/icon2.png' %}" alt="">
+        </div>
+        <div class='logout'>
+            <a href="{% url 'logout' %}"><img src="{% static 'index/css/icons/icon3.png' %}" alt=""></a>
+        </div>
+        <div class='sidebar'>
+            <div class='navigation-list'>
+                <div class='navigation'>
+                    <h3>Navigation</h3>
+                    <hr/>
+                    <div class='pages' >
+                        <div class='page-info'>
+                            <a href="{% url 'camers'  %}"><div class='info'>Dashboard</div></a>
+                        </div>
+                    </div>
+                    <hr/>
+                    <h3>Databases</h3>
+                    <hr/>
+                    <div class='pages' >
+                        <div class='page-info'>
+                            <a href="{% url 'cars'  %}"><div class='info'>Сar numbers</div>  </a>
+                        </div>
+                        <div class='page-info'>
+                            <a href="{% url 'persones'  %}"><div class='info'>Staff</div> </a>
+                        </div>
+                    </div>
+                    <hr/>
+                </div>
+            </div>
+        </div>
+        <div class='main'>
+            <div class="container">
+                <div class="row">
+                    {% block content %}
+                    <div class="welcom_page">
+                        <div class="greeting_message">Welcome to our Video Control service</div>
+                        <div class="text">
+                            <p>In our service, the user is given the opportunity to control the admission of persons
+                                and vehicles by detecting and recognizing the number of the car or the person who arrived
+                                at the access point through the connected camera.</p>
+                            <p>The user creates the database himself</p>
+                        </div>
+                        <div class="creators">
+
+                        </div>
+                    </div>
+                    {% endblock %}
+                </div>
+            </div>  
+        </div>
+        
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('#bootstrapdatatable').DataTable({     
+              "aLengthMenu": [[3, 5, 10, 25, -1], [3, 5, 10, 25, "All"]],
+                "iDisplayLength": 3
+               } 
+            );
+        } );
+    </script>
+    <script>
+        document.getElementById('stream').onclick = function() {
+          document.getElementById('section-stream').hidden =false ;
+          document.getElementById('section-recognition').hidden = true;
+        }
+        document.getElementById('recognition').onclick = function() {
+          document.getElementById('section-stream').hidden = true;
+          document.getElementById('section-recognition').hidden = false;
+        }
+    </script>
+</body>
+</html>

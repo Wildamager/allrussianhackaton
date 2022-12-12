@@ -1,0 +1,35 @@
+{% extends 'index/index.html' %}
+{% load static %}
+{% block content %}
+<div className='video-lib'>
+    {% for camera in camers %}
+    <a href="{% url 'index' camera.id %}">
+        <figure>
+            <div class='video'><img src="{% url 'stream' camera.id %}" alt=""></div>
+            <figcaption>
+            <p style=" margin-top: 7px" >{{camera.location}}</p>
+            <p>{{camera.ip}}</p>
+            </figcaption>
+        </figure>
+    </a>  
+    {% endfor %}
+    <a href="{% url 'addnewcamera' %}" id="myBtn"  title="add_camers">
+        <figure>
+            <div style="display: table-cell; 
+                        width: 300px;
+                        height: 163px;
+                        text-align: center;
+                        vertical-align: middle;"
+             class='video'>
+                <img align="middle" style="width: 50px; height: 50px;" src="{% static 'index/css/icons/plus.png' %}" alt="">
+            </div>
+            <figcaption>
+            <p style=" margin-top: 7px" >INSERT</p>
+            <p>NEW CAMERA</p>
+            </figcaption>
+        </figure>
+    </a> 
+    
+      
+</div>
+{% endblock %}
